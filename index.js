@@ -7,6 +7,7 @@
 const http = require('http');
 const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
+const config = require('./config');
 
 // The server should respond to all requestes with a string
 const server =  http.createServer(function(req,res){
@@ -16,10 +17,10 @@ const server =  http.createServer(function(req,res){
 
   // Get the path
   const path = parsedUrl.pathname;
-  const trimmedPath = path.replace(/^\/+|\/+$/g,'');
+  const trimmed_path = path.replace(/^\/+|\/+$/g,'');
 
   // Get the query string as an object
-  const queryStringObject = parsedUrl.query;
+  const query_string_object = parsedUrl.query;
 
   // Get the HTTP Method
   const method = req.method.toUpperCase();
@@ -39,24 +40,24 @@ const server =  http.createServer(function(req,res){
 
     // Choose the handler this request should go to. If  not found, use 404
     let chosenHandler = handlers.notFound;
-    if (typeof(router[trimmedPath]) !== 'undefined'){
-       chosenHandler = router[trimmedPath];
+    if (typeof(router[trimmed_path]) !== 'undefined'){
+       chosenHandler = router[trimmed_path];
     }
 
     // Construct the data object to send to the handler
     const data = {
-      'trimmedPath' : trimmedPath,
-      'queryStringObject' : queryStringObject,
+      'trimmed_path' : trimmed_path,
+      'query_string_object' : query_string_object,
       'method' : method,
       'headers' : headers,
       'payload' : buffer
     };
     // Route the request to the handler specified in the router
-    chosenHandler(data, function(statusCode, payload){
+    chosenHandler(data, function(status_code, payload){
 
       // User the status code called back by the handler, or default 404
-      if (typeof(statusCode) !== 'number'){
-          statusCode = 200;
+      if (typeof(status_code) !== 'number'){
+          status_code = 200;
       }
 
       // Use the payload called back by the handler, or default to empty object
@@ -69,18 +70,20 @@ const server =  http.createServer(function(req,res){
 
       // Return the response
       res.setHeader('Content-Type', 'application/json');
-      res.writeHead(statusCode);
+      res.writeHead(status_code);
       res.end(payloadString);
 
       // Log the request path
-      console.log('Returning this response: ', statusCode, payloadString);
+      console.log('Returning this response: ', status_code, payloadString);
     });
   });
 });
 
 // Start the server, and have ir listen on port 3000
-server.listen(3000, function(){
-  console.log("Server listen to port 3000");
+server.listen(config.port, function(){
+  console.log("Server listen to port "+config.port+
+              " in the environment "+ config.envName
+  );
 });
 
 // Define the handlers
