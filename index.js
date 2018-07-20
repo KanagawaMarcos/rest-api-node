@@ -5,12 +5,52 @@
 
 // Includes
 const http = require('http');
+const https = require('https');
 const url = require('url');
+const fs = require('fs');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
 
-// The server should respond to all requestes with a string
-const server =  http.createServer(function(req,res){
+// Instantiate the HTTP server
+const http_server =  http.createServer(function(req,res){
+  unifiedServer(req, res);
+});
+
+// Start the HTTP server
+http_server.listen(config.http_port, function(){
+  console.log("Server listen to port ",config.http_port);
+});
+
+// Instantiate the HTTPS server
+const https_server_options = {
+  'key' : fs.readFileSync('./https/key.pem'),
+  'cert' : fs.readFileSync('./https/cert.pem')
+};
+const https_server =  https.createServer(https_server_options,function(req,res){
+  unifiedServer(req, res,);
+});
+
+// Start the HTTPS server
+https_server.listen(config.https_port, function(){
+  console.log("Server listen to port ",config.https_port);
+});
+
+// Define the handlers
+let handlers = {};
+
+// Sample handlers
+handlers.sample = function (data, callback){
+  // Callback a http status code, and a payload object
+  callback(406, {'name' : 'sample handler'})
+};
+
+// Not found handlers
+handlers.notFound = function(data, callback){
+  callback(404);
+};
+
+// All the server logic for both the http and https server
+const unifiedServer = function(req, res){
 
   // Get the URL and parse it
   const parsedUrl = url.parse(req.url, true);
@@ -77,30 +117,14 @@ const server =  http.createServer(function(req,res){
       console.log('Returning this response: ', status_code, payloadString);
     });
   });
-});
-
-// Start the server, and have ir listen on port 3000
-server.listen(config.port, function(){
-  console.log("Server listen to port "+config.port+
-              " in the environment "+ config.envName
-  );
-});
-
-// Define the handlers
-let handlers = {};
-
-// Sample handlers
-handlers.sample = function (data, callback){
-  // Callback a http status code, and a payload object
-  callback(406, {'name' : 'sample handler'})
 };
 
-// Not found handlers
-handlers.notFound = function(data, callback){
-  callback(404);
+handlers.ping = function(data, callback){
+  callback(200);
 };
 
 // Define a request router
 let router = {
-  'sample' : handlers.sample
+  'sample' : handlers.sample,
+  'ping' : handlers.ping
 };

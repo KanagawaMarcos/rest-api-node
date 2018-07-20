@@ -8,14 +8,16 @@ let environments = {};
 
 // Staging (default) environment
 environments.staging = {
-  'port' : 3000,
+  'http_port' : 3000,
+  'https_port' : 3001,
   'envName' : 'staging'
 };
 
 // Production environment
 environments.production = {
-  'port' : 5000,
-  'envName' : 'production'
+  'http_port' : 5000,
+  'https_port' : 5001,
+  'env_name' : 'production'
 };
 
 // Determine which environment was passed as a command-line argument
