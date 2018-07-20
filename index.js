@@ -12,23 +12,23 @@ const StringDecoder = require('string_decoder').StringDecoder;
 const server =  http.createServer(function(req,res){
 
   // Get the URL and parse it
-  let parsedUrl = url.parse(req.url, true);
+  const parsedUrl = url.parse(req.url, true);
 
   // Get the path
-  let path = parsedUrl.pathname;
-  let trimmedPath = path.replace(/^\/+|\/+$/g,'');
+  const path = parsedUrl.pathname;
+  const trimmedPath = path.replace(/^\/+|\/+$/g,'');
 
   // Get the query string as an object
-  let queryStringObject = parsedUrl.query;
+  const queryStringObject = parsedUrl.query;
 
   // Get the HTTP Method
-  let method = req.method.toUpperCase();
+  const method = req.method.toUpperCase();
 
   // Get the headers as an object
-  let headers = req.headers;
+  const headers = req.headers;
 
   // Get the payload, if any
-  let decoder = new StringDecoder('utf-8');
+  const decoder = new StringDecoder('utf-8');
   let buffer = '';
   req.on('data', function(data){
     buffer += decoder.write(data);
@@ -43,7 +43,7 @@ const server =  http.createServer(function(req,res){
     }
 
     // Construct the data object to send to the handler
-    let data = {
+    const data = {
       'trimmedPath' : trimmedPath,
       'queryStringObject' : queryStringObject,
       'method' : method,
