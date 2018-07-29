@@ -9,4 +9,4 @@ node index.js
 ```
 ### Project Structure
  * **index.js** : Main project file, it has it's business logic, create server http and https, routing system and the API services.
- * **data.js** : Lib created in order to perform CRUD using the file system. Instead of using MongoDB, I store all of the data in a JSON file, which makes the project more easy to use.
+ * **lib/data.js** : Lib created in order to perform CRUD using the file system. Instead of using MongoDB, I store all of the data in a JSON file, which makes the project more easy to use.
