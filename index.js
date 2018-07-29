@@ -10,6 +10,12 @@ const url = require('url');
 const fs = require('fs');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
+const _data = require('./lib/data');
+
+// testing
+_data.delete('test','new_file', function(err){
+  console.log('this was the error', err);
+});
 
 // Instantiate the HTTP server
 const http_server =  http.createServer(function(req,res){
@@ -36,7 +42,7 @@ https_server.listen(config.https_port, function(){
 });
 
 // Define the handlers
-let handlers = {};
+const handlers = {};
 
 // Sample handlers
 handlers.sample = function (data, callback){
@@ -124,7 +130,7 @@ handlers.ping = function(data, callback){
 };
 
 // Define a request router
-let router = {
+const router = {
   'sample' : handlers.sample,
   'ping' : handlers.ping
 };
