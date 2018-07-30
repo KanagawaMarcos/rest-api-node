@@ -11,15 +11,15 @@ const fs = require('fs');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
 const _data = require('./lib/data');
-
+const handlers = require('./lib/handlers');
 
 // Instantiate the HTTP server
-const http_server =  http.createServer(function(req,res){
+const http_server =  http.createServer((req,res) =>{
   unifiedServer(req, res);
 });
 
 // Start the HTTP server
-http_server.listen(config.http_port, function(){
+http_server.listen(config.http_port, () =>{
   console.log("Server listen to port ",config.http_port);
 });
 
@@ -28,31 +28,17 @@ const https_server_options = {
   'key' : fs.readFileSync('./https/key.pem'),
   'cert' : fs.readFileSync('./https/cert.pem')
 };
-const https_server =  https.createServer(https_server_options,function(req,res){
+const https_server =  https.createServer(https_server_options, (req,res) => {
   unifiedServer(req, res,);
 });
 
 // Start the HTTPS server
-https_server.listen(config.https_port, function(){
+https_server.listen(config.https_port, ()=>{
   console.log("Server listen to port ",config.https_port);
 });
 
-// Define the handlers
-const handlers = {};
-
-// Sample handlers
-handlers.sample = function (data, callback){
-  // Callback a http status code, and a payload object
-  callback(406, {'name' : 'sample handler'})
-};
-
-// Not found handlers
-handlers.notFound = function(data, callback){
-  callback(404);
-};
-
 // All the server logic for both the http and https server
-const unifiedServer = function(req, res){
+const unifiedServer = (req, res)=>{
 
   // Get the URL and parse it
   const parsedUrl = url.parse(req.url, true);
@@ -73,11 +59,11 @@ const unifiedServer = function(req, res){
   // Get the payload, if any
   const decoder = new StringDecoder('utf-8');
   let buffer = '';
-  req.on('data', function(data){
+  req.on('data', (data)=>{
     buffer += decoder.write(data);
   });
 
-  req.on('end', function(){
+  req.on('end', ()=>{
     buffer += decoder.end();
 
     // Choose the handler this request should go to. If  not found, use 404
@@ -95,7 +81,7 @@ const unifiedServer = function(req, res){
       'payload' : buffer
     };
     // Route the request to the handler specified in the router
-    chosenHandler(data, function(status_code, payload){
+    chosenHandler(data, (status_code, payload)=>{
 
       // User the status code called back by the handler, or default 404
       if (typeof(status_code) !== 'number'){
@@ -121,12 +107,9 @@ const unifiedServer = function(req, res){
   });
 };
 
-handlers.ping = function(data, callback){
-  callback(200);
-};
-
 // Define a request router
 const router = {
-  'sample' : handlers.sample,
-  'ping' : handlers.ping
+  'ping': handlers.ping,
+  'users': handlers.users
 };
+
