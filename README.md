@@ -10,3 +10,10 @@ node index.js
 ### Project Structure
  * **index.js** : Main project file, it has it's business logic, create server http and https, routing system and the API services.
  * **lib/data.js** : Lib created in order to perform CRUD using the file system. Instead of using MongoDB, I store all of the data in a JSON file, which makes the project more straightforward to understand.
+ 
+### Endpoints 
+ - **/ping/** : Return a 200 status code
+ - **/users/** : 
+    - Method: POST
+    - Query Strings: first_name, last_name, phone, password, tos_agreement
+    - Optional data: none
