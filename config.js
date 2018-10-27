@@ -10,15 +10,15 @@ let environments = {};
 
 // Staging (default) environment
 environments.staging = {
-  'http_port' : 3000,
-  'https_port' : 3001,
+  'http_port' : 8000,
+  'https_port' : 8100,
   'envName' : 'staging',
   'hashing_secret' : 'this_is_a_secret'
 };
 
 // Production environment
 environments.production = {
-  'http_port' : (PORT+1),//'http_port' : 5000,
+  'http_port' : PORT,//'http_port' : 5000,
   'https_port' : PORT, //'https_port' : 5001,
   'env_name' : 'production',
   'hashing_secret': 'this_is_also_a_secret'
