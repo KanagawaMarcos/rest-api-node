@@ -16,7 +16,7 @@ const helpers = require('./lib/helpers');
 
 // Instantiate the HTTP server
 
-/* This server was deactivated in order to deploy on Heroku
+// This server was deactivated in order to deploy on Heroku
 const http_server =  http.createServer((request,response) =>{
   requestListener(request, response);
 });
@@ -25,13 +25,13 @@ const http_server =  http.createServer((request,response) =>{
 http_server.listen(config.http_port, () =>{
   console.log("HTTP: Server listen to port ",config.http_port);
 });
-*/
+
 // HTTPS keys
 const https_server_options = {
   'key' : fs.readFileSync('./https/key.pem'),
   'cert' : fs.readFileSync('./https/cert.pem')
 };
-
+/*
 // Instantiate the HTTPS server
 const https_server =  https.createServer(https_server_options, (req,res) => {
   requestListener(req, res,);
@@ -41,6 +41,7 @@ const https_server =  https.createServer(https_server_options, (req,res) => {
 https_server.listen(config.https_port, ()=>{
   console.log("HTTPS: Server listen to port ",config.https_port);
 });
+*/
 
 // All the server logic for both the http and https server
 const requestListener = (request, response) => {
