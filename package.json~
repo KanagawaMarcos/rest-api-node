@@ -1,5 +1,5 @@
 {
-    "name" : "rest-vanilla-node",
+    "name" : "Rest Api Vanilla Node",
     "version" : "2.4.0",
     "description" : "Simple node js REST API that doesn't use any dependecies",
     "main" : "index.js",
