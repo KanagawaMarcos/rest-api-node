@@ -12,8 +12,16 @@ node index.js
  * **lib/data.js** : Lib created in order to perform CRUD using the file system. Instead of using MongoDB, I store all of the data in a JSON file, which makes the project more straightforward to understand.
  
 ### Endpoints 
- - **/ping/** : Return a 200 status code
+ - **/ping/** : 
+    - Methods: GET
+    - Description: Return a 200 status code showing that the API still alive.
+    - Query Strings: none
+    - Example:
+    - ```https://rest-vanilla-node.herokuapp.com/ping```
+
  - **/users/** : 
-    - Method: POST
+    - Methods: POST
+    - Description: Create a new user
     - Query Strings: first_name, last_name, phone, password, tos_agreement
-    - Optional data: none
+    - Example:
+    - ```https://rest-vanilla-node.herokuapp.com/users?first_name=Marcos&last_name=Costa&phone=123456789&password=testing&tos_agreement=true```
