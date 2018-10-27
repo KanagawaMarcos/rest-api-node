@@ -57,7 +57,7 @@ const requestListener = (request, response) => {
   const query_string_object = parsedUrl.query;
 
   // Get the HTTP Method
-  const method = request.method.toUpperCase();
+  const method = request.method.toLowerCase();
 
   // Get the headers as an object
   const headers = request.headers;
