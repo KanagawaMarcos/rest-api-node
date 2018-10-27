@@ -1,13 +1,26 @@
 {
-    "name" : "rest-vanilla-node",
-    "version" : "2.4.0",
-    "description" : "Simple node js REST API that doesn't use any dependecies",
-    "main" : "index.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Marcos-Costa/dlook.git"
-    },
-    "scripts": {
-        "start": "node index.js"
-    }
+  "name": "rest-vanilla-node",
+  "version": "1.0.0",
+  "description": "Rest API using node.js without any dependecies. No frameworks envolved at all.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcos-Costa/rest-api-node.git"
+  },
+  "keywords": [
+    "rest"
+  ],
+  "author": "Marcos Costa Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcos-Costa/rest-api-node/issues"
+  },
+  "homepage": "https://github.com/Marcos-Costa/rest-api-node#readme"
 }
