@@ -16,14 +16,10 @@ node index.js
     - Methods: GET
     - Description: Return a 200 status code showing that the API still alive.
     - Query Strings: none
-    - Examples:
-    - ```https://rest-vanilla-node.herokuapp.com/ping```
 
  - **/users/** : 
     - Methods: POST
     - Description: Create a new user
-    - Query Strings: first_name, last_name, phone, password, tos_agreement
-    - Examples:
-    - ```https://rest-vanilla-node.herokuapp.com/users?first_name=Marcos&last_name=Costa&phone=123456789&password=testing&tos_agreement=true```
-    - ```curl -d "first_name=Marcos&last_name=Costa&phone=123456789&password=testing&tos_agreement=true" -H "Content-Type":"application/x-www-form-urlencoded" -X POST https://rest-vanilla-node.herokuapp.com/users```
+    - Body: first_name, last_name, phone, password, tos_agreement
+
 
