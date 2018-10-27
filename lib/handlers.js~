@@ -12,7 +12,7 @@ const handlers = {};
 
 // Users
 handlers.users = (data, callback) =>{
-    const acceptable_methods = ['post', 'get','put','delete'];
+    let acceptable_methods = ['post', 'get','put','delete'];
     
     if(acceptable_methods.includes(data.method)){
         handlers._users[data.method](data,callback);

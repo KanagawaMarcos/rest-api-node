@@ -1,0 +1,13 @@
+{
+    "name" : "Rest Api Vanilla Node",
+    "version" : "2.4.0",
+    "description" : "Simple node js REST API that doesn't use any dependecies",
+    "main" : "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Marcos-Costa/dlook.git"
+    },
+    "scripts": {
+        "start": "node index.js"
+    }
+}

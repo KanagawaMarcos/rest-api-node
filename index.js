@@ -14,7 +14,6 @@ const _data = require('./lib/data');
 const handlers = require('./lib/handlers');
 const helpers = require('./lib/helpers');
 
-
 // Instantiate the HTTP server
 const http_server =  http.createServer((request,response) =>{
   requestListener(request, response);
