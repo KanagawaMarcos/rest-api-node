@@ -13,25 +13,25 @@ node index.js
  
 ### Endpoints 
  - **/ping/** : 
-    - Methods: GET
+    - Methods: **GET**
     - Description: Return a 200 status code showing that the API still alive.
     - Query Strings: none
 
  - **/users/** : 
-    - Method: POST
-    - Description: Create a new user.
-    - Body: first_name, last_name, phone, password, tos_agreement
+    - Method: **POST**
+      - Description: Create a new user.
+      - Body: first_name, last_name, phone, password, tos_agreement
 
-    - Method: GET
-    - Description: Return a user data.
-    - Query String: phone
+    - Method: **GET**
+      - Description: Return a user data.
+      - Query String: phone
 
-    - Method: UPDATE
-    - Description: Update the user's fields.
-    - Body: first_name, last_name, password
+    - Method: **UPDATE**
+      - Description: Update the user's fields.
+      - Body: first_name, last_name, password
 
-    - Method: DELETE
-    - Description: Delete a given user.
-    - Query String: phone
+    - Method: **DELETE**
+      - Description: Delete a given user.
+      - Query String: phone
 
 
