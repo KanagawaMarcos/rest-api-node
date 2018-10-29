@@ -10,6 +10,8 @@ node index.js
 ### Project Structure
  * **index.js** : Main project file, it has it's business logic, create server http and https, routing system and the API services.
  * **lib/data.js** : Lib created in order to perform CRUD using the file system. Instead of using MongoDB, I store all of the data in a JSON file, which makes the project more straightforward to understand.
+  * **lib/handlers.js** : File containing all services used by the API.
+  * **lib/helpers.js** : Shared functions used across the API.
  
 ### Endpoints 
  - **/ping/** : 
