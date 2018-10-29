@@ -18,8 +18,20 @@ node index.js
     - Query Strings: none
 
  - **/users/** : 
-    - Methods: POST
-    - Description: Create a new user
+    - Method: POST
+    - Description: Create a new user.
     - Body: first_name, last_name, phone, password, tos_agreement
+
+    - Method: GET
+    - Description: Return a user data.
+    - Query String: phone
+
+    - Method: UPDATE
+    - Description: Update the user's fields.
+    - Body: first_name, last_name, password
+
+    - Method: DELETE
+    - Description: Delete a given user.
+    - Query String: phone
 
 
