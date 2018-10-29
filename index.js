@@ -31,7 +31,7 @@ const https_server_options = {
   'key' : fs.readFileSync('./https/key.pem'),
   'cert' : fs.readFileSync('./https/cert.pem')
 };
-/*
+
 // Instantiate the HTTPS server
 const https_server =  https.createServer(https_server_options, (req,res) => {
   requestListener(req, res,);
@@ -41,7 +41,7 @@ const https_server =  https.createServer(https_server_options, (req,res) => {
 https_server.listen(config.https_port, ()=>{
   console.log("HTTPS: Server listen to port ",config.https_port);
 });
-*/
+
 
 // All the server logic for both the http and https server
 const requestListener = (request, response) => {

@@ -19,7 +19,7 @@ environments.staging = {
 // Production environment
 environments.production = {
   'http_port' : PORT,//'http_port' : 5000,
-  'https_port' : PORT, //'https_port' : 5001,
+  'https_port' : 5001, //'https_port' : 5001,
   'env_name' : 'production',
   'hashing_secret': 'this_is_also_a_secret'
 };
