@@ -34,4 +34,10 @@ node index.js
       - Description: Delete a given user.
       - Query String: phone
 
+ - **/tokens/** : 
+    - Method: **POST**
+      - Description: Create a new authentication token for a given user.
+      - Body: phone, password
+
+
 
