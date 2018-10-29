@@ -4,6 +4,8 @@
  */
 // Heroku PORT
 const PORT = process.env.PORT || 5000;
+const TOKEN_LENGTH = 20;
+const TOKEN_EXPIRES = Date.now() + 1000 * 60* 60; // 1 second * 60 * 60 = 1 hour
 
 // Container for all the environments
 let environments = {};
@@ -13,7 +15,9 @@ environments.staging = {
   'http_port' : 8000,
   'https_port' : 8100,
   'envName' : 'staging',
-  'hashing_secret' : 'this_is_a_secret'
+  'hashing_secret' : 'this_is_a_secret',
+  'token_id_length' : TOKEN_LENGTH,
+  'token_expires': TOKEN_EXPIRES
 };
 
 // Production environment
@@ -21,7 +25,9 @@ environments.production = {
   'http_port' : PORT,//'http_port' : 5000,
   'https_port' : 5001, //'https_port' : 5001,
   'env_name' : 'production',
-  'hashing_secret': 'this_is_also_a_secret'
+  'hashing_secret': 'this_is_also_a_secret',
+  'token_id_length' : TOKEN_LENGTH,
+  'token_expires': TOKEN_EXPIRES
 };
 
 // Determine which environment was passed as a command-line argument
