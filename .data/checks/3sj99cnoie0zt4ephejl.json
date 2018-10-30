@@ -1,1 +1,1 @@
-{"id":"3sj99cnoie0zt4ephejl","user_phone":"123456789","protocol":"http","url":"google.com","method":"get","success_codes":[200,201],"timeout_seconds":3}
+{"id":"3sj99cnoie0zt4ephejl","user_phone":"123456789","protocol":"https","url":"yahoo.com","method":"put","success_codes":[200,201,403],"timeout_seconds":2}
