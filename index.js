@@ -88,7 +88,7 @@ const requestListener = (request, response) => {
     };
 
     // Route the request to the handler specified in the router
-    chosenHandler(data, (status_code, payload) => {
+     chosenHandler(data, (status_code, payload) => {
 
       // User the status code called back by the handler, or default 404
       if (typeof(status_code) !== 'number'){
