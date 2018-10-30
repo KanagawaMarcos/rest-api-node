@@ -17,7 +17,8 @@ environments.staging = {
   'envName' : 'staging',
   'hashing_secret' : 'this_is_a_secret',
   'token_id_length' : TOKEN_LENGTH,
-  'token_expires': TOKEN_EXPIRES
+  'token_expires': TOKEN_EXPIRES,
+  'max_checks' : 5
 };
 
 // Production environment
@@ -27,7 +28,8 @@ environments.production = {
   'env_name' : 'production',
   'hashing_secret': 'this_is_also_a_secret',
   'token_id_length' : TOKEN_LENGTH,
-  'token_expires': TOKEN_EXPIRES
+  'token_expires': TOKEN_EXPIRES,
+  'max_checks' : 5
 };
 
 // Determine which environment was passed as a command-line argument
