@@ -14,9 +14,11 @@ const _data = require('./lib/data');
 const handlers = require('./lib/handlers');
 const helpers = require('./lib/helpers');
 
-// Instantiate the HTTP server
+helpers.send_twilio_sms('4158375309','Hello World!', (err)=>{
+  console.log('this was the error ' +err);
+});
 
-// This server was deactivated in order to deploy on Heroku
+// Instantiate the HTTP server
 const http_server =  http.createServer((request,response) =>{
   requestListener(request, response);
 });
