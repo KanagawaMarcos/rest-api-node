@@ -40,7 +40,35 @@ node index.js
     - Method: **POST**
       - Description: Create a new authentication token for a given user.
       - Body: phone, password
+      
+    - Method: **GET**
+      - Description: Return a token
+      - Query String: id
 
+    - Method: **UPDATE**
+      - Description: Update the token expiration time to extend one more hour.
+      - Body: id, extend
+
+    - Method: **DELETE**
+      - Description: Delete a given token.
+      - Query String: id
+ 
+ - **/checks/** : 
+    - Method: **POST**
+      - Description: Create a new API check.
+      - Body: protocol, url, method, success_codes, timeout_seconds
+      
+    - Method: **GET**
+      - Description: Return a existing check
+      - Query String: id
+
+    - Method: **UPDATE**
+      - Description: Update a check configuration
+      - Body: id, protocol, url, method, success_codes, timeout_seconds
+
+    - Method: **DELETE**
+      - Description: Delete a existing check.
+      - Query String: id
 
 
 
