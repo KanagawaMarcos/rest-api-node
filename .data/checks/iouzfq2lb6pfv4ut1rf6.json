@@ -1,1 +1,1 @@
-{"id":"iouzfq2lb6pfv4ut1rf6","user_phone":"123456789","protocol":"http","url":"google.com","method":"get","success_codes":[200,201],"timeout_seconds":3}
+{"id":"iouzfq2lb6pfv4ut1rf6","user_phone":"123456789","protocol":"http","url":"google.com","method":"get","success_codes":[200,201],"timeout_seconds":3,"state":"down","last_check":1541356583489}
