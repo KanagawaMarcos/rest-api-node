@@ -1,5 +1,6 @@
 # Rest API - Node.js
 Rest API using plain node.js. NO DEPENDENCIES.
+This API do a health check every 1 minute for some given URL. You can create an account, and every account can has 5 "checks". The project uses tokens to validate each user.
 
 ## How To Run
 Download Node.js from the [official  site](https://nodejs.org/en/download/) or from [here](https://github.com/creationix/nvm) (like I did), and run the following at the terminal:
