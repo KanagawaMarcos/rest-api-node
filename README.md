@@ -3,7 +3,7 @@ Rest API using plain node.js. NO DEPENDENCIES.
 
 This API do a health check every 1 minute for some given URL. You can create an account, and every account can has 5 "checks". The project uses tokens to validate each user.
 
-# About the project
+## About the project
 This project is entirely made for studies propuses. It has callback hells, lot's of pre ECMA 5 constructs and no framework. The main goal here is not write a newer and clean javascript, but to feel what's like to develop in node.js in it's bare bones. 
 DO NOT USE IN PRODUCTION.
 
